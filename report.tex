@@ -16,7 +16,12 @@ This report is part of a project at the Technische Universität Berlin, called A
 This problem comes from a task in the Semantic Evaluation\footnote{\url{https://pan.webis.de/semeval19/semeval19-web/}} competition which is held simultaneously during this project. This makes it possible to use the dataset provided to the participants of the competition. The goal of this project is to achieve a deeper understanding of the inner working of such a system and learn how to build such a system ourselves.
 
 \section{Existing approaches}
+\subsection{Preprocessing}
+The dataset from SemEval contains a thousands of articles. These articles cannot be fed into a form of artificial intelligence immediately. Several approaches are using the following preprocessing:
+
+
 \subsection{LSTM}
+Long short-term memory a form of an artificial neural network. The difference with a recurrent neural network is that LSTM networks are able to use information from the past to understand the input. E.g. a video frame can be better understood if the previous video frames are also taken into account. This is also valueable for text processing, because hyperpartisian news detection requires a deeper understanding of the link between words.
 \subsection{CNN}
 \subsection{Naive Bayes}
 \subsection{Support Vector Machine}
