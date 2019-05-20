@@ -3,7 +3,7 @@
 \usepackage{url}
 
 \title{Research report - Hyperpartisian NLP}
-\author{Florian Biebel and Daan Middendorp}
+\author{Florian Biebel \and Daan Middendorp}
 \date{May 2019}
 
 \begin{document}
@@ -11,7 +11,7 @@
 \maketitle
 
 \section{Introduction}
-This report is part of a project at the Technische Universität Berlin, called Advanced Projects at the Quality and Usability Lab. During this project, the problem of hyperpartisian news detection will be solved using natural language processing. Hyperpartisian news is news that is extremely biased or sharply polarized in favor of a political party. 
+This report is part of a project at the Technische Universität Berlin, called Advanced Projects at the Quality and Usability Lab. During this project, the problem of hyperpartisian news detection will be solved using natural language processing. Hyperpartisian news is news that is extremely biased or sharply polarized in favor of a political party.
 
 This problem comes from a task in the Semantic Evaluation\footnote{\url{https://pan.webis.de/semeval19/semeval19-web/}} competition which is held simultaneously during this project. This makes it possible to use the dataset provided to the participants of the competition. The goal of this project is to achieve a deeper understanding of the inner working of such a system and learn how to build such a system ourselves.
 
@@ -23,6 +23,10 @@ The dataset from SemEval contains a thousands of articles. These articles cannot
 \subsection{LSTM}
 Long short-term memory a form of an artificial neural network. The difference with a recurrent neural network is that LSTM networks are able to use information from the past to understand the input. E.g. a video frame can be better understood if the previous video frames are also taken into account. This is also valueable for text processing, because hyperpartisian news detection requires a deeper understanding of the link between words.
 \subsection{CNN}
+Convolutional  neural networks have proven to be useful for multiple NLP tasks, such as sentiment analysis or summarization.
+CNN have the ability to extract $n$-gram features from input sentences to create a semantic sentence representation to be used in downstream tasks.
+Such ability comes from the convolutions creating an evermore abstract representation of the input, but still conserving a micro-context due to the manner how convolutions work.
+This particular usage of CNN is called Sentence Modeling and could prove useful for hyperpartisan news detection.
 \subsection{Naive Bayes}
 \subsection{Support Vector Machine}
 \subsection{Logistic Regression}
