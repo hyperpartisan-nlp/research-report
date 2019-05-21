@@ -19,26 +19,30 @@ This problem comes from a task in the Semantic Evaluation\footnote{\url{https://
 \subsection{Preprocessing}
 The dataset from SemEval contains a thousands of articles. These articles cannot be fed into a form of artificial intelligence immediately. Several approaches are using the following preprocessing:
 
+\subsubsection{Word2Vec}
+\subsubsection{Doc2Vec}
+
 
 \subsection{LSTM}
 Long short-term memory a form of an artificial neural network. The difference with a recurrent neural network is that LSTM networks are able to use information from the past to understand the input. E.g. a video frame can be better understood if the previous video frames are also taken into account. This is also valueable for text processing, because hyperpartisian news detection requires a deeper understanding of the link between words.
+
 \subsection{CNN}
 Convolutional  neural networks have proven to be useful for multiple NLP tasks, such as sentiment analysis or summarization.
 CNN have the ability to extract $n$-gram features from input sentences to create a semantic sentence representation to be used in downstream tasks.
 Such ability comes from the convolutions creating an evermore abstract representation of the input, but still conserving a micro-context due to how convolutions work.
 This particular usage of CNN is called Sentence Modeling and could prove useful for hyperpartisan news detection.
+
 \subsection{Naive Bayes}
 The Naive Bayes method utilizes Bayes' Theorem to classify text and is used in text and topic classification.
 Additionally, it relies on the `bag of words' (BOW) representation to function.
 For the binomial classification a positive and negative class are used---in our case hyperpartisan and non-hyperpartisan---to each of which is a BOW assigned.
 Depending on the count of positive and negative words, the text is classified as such.
 This approach might be useful depending on the chosen BOWs.
-\subsection{Support Vector Machine}
 
+\subsection{Support Vector Machine}
 If the wordt are modelled as vectors, is is possible to draw them in a multidimensional space. Support Vector Machines are able to draw a line in the space with creates the best separation between two types of categories. Therefore it is really suitable as a binary classifier. In this case both classes would be \textit{hyperpartisian} or \textit{non-hyperpartisian}.
 
 \subsection{Logistic Regression}
-
 Logistic regressions are similiar to Support Vector Machines. However, line that is drawn in order to separate two classes is calculated in a different way. A support Vector Machine tries to draw this so that it maximizes the margin between the line and both classes. Logistic Regression is therefore more sensible to outliers. Another difference is that Support Vector Machines are binary, so there is no way to tell something about the reliability of the prediction, the class is either $1$ or $0$. Logistic Regressions are working with probabilities between $1$ and $0$
 
 \section{Used tools}
