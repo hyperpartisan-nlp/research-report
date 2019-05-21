@@ -35,9 +35,11 @@ Depending on the count of positive and negative words, the text is classified as
 This approach might be useful depending on the chosen BOWs.
 \subsection{Support Vector Machine}
 
-If the wordt are modelled as words, is is possible to draw them in a multidimensional space. Support Vector Machines are able to draw a line in the space with creates the best separation between two types of categories. Therefore it is really suitable as a binary classifier. In this case both classes would be \textit{hyperpartisian} or \textit{non-hyperpartisian}.
+If the wordt are modelled as vectors, is is possible to draw them in a multidimensional space. Support Vector Machines are able to draw a line in the space with creates the best separation between two types of categories. Therefore it is really suitable as a binary classifier. In this case both classes would be \textit{hyperpartisian} or \textit{non-hyperpartisian}.
 
 \subsection{Logistic Regression}
+
+Logistic regressions are similiar to Support Vector Machines. However, line that is drawn in order to separate two classes is calculated in a different way. A support Vector Machine tries to draw this so that it maximizes the margin between the line and both classes. Logistic Regression is therefore more sensible to outliers. Another difference is that Support Vector Machines are binary, so there is no way to tell something about the reliability of the prediction, the class is either $1$ or $0$. Logistic Regressions are working with probabilities between $1$ and $0$
 
 \section{Used tools}
 
