@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{url}
 
-\title{Research report - Hyperpartisian NLP}
+\title{Research report - Hyperpartisan NLP}
 \author{Florian Biebel \and Daan Middendorp}
 \date{May 2019}
 
@@ -10,66 +10,14 @@
 
 \maketitle
 
-\section{Introduction}
-This report is part of a project at the Technische Universität Berlin, called Advanced Projects at the Quality and Usability Lab. During this project, the problem of hyperpartisian news detection will be solved using natural language processing. Hyperpartisian news is news that is extremely biased or sharply polarized in favor of a political party.
+\input{intro.tex}
 
-This problem comes from a task in the Semantic Evaluation\footnote{\url{https://pan.webis.de/semeval19/semeval19-web/}} competition which is held simultaneously during this project. This makes it possible to use the dataset provided to the participants of the competition. The goal of this project is to achieve a deeper understanding of the inner working of such a system and learn how to build such a system ourselves.
+\input{approaches.tex}
 
-\section{Existing approaches}
-\subsection{Preprocessing}
-The dataset from SemEval contains a thousands of articles. These articles cannot be fed into a form of artificial intelligence immediately. Several approaches are using the following preprocessing:
+\input{tools.tex}
 
-\subsubsection{Tokenization}
-Tokenization is the process of dividing text into sentences and sentences into words and punctuation marks.
-From tokenized text, further preprocessing can be applied.
+\input{solution.tex}
 
-\subsubsection{Stemming}
-Stemming is the process of removing inflection from words.
-Usually only the stem is necessary information to abstractly understand context.
-An example is reducing ``stemming'' and ``stems'' to ``stem''.
-
-\subsubsection{Lemmazation}
-An alternative method to stemming.
-In exchange for speed, the accuracy of removing inflection improves.
-This greatly improves accuracy for texts with multiple instances of words with similar inflections.
-An example is ``leaf/leaves'' and ``leave/leaves''.
-
-\subsubsection{Stopwords}
-Stopwords are words that do not influence the context or meaning of a sentence.
-For example, words such as ``the'', ``and'', and ``or'' can usually be considered stopwords.
-Filtering out stopwords improves accuracy and performance due to removing unnecessary words.
-
-
-\subsubsection{Word2Vec}
-\subsubsection{Doc2Vec}
-
-
-\subsection{LSTM}
-Long short-term memory a form of an artificial neural network. The difference with a recurrent neural network is that LSTM networks are able to use information from the past to understand the input. E.g. a video frame can be better understood if the previous video frames are also taken into account. This is also valueable for text processing, because hyperpartisian news detection requires a deeper understanding of the link between words.
-
-\subsection{CNN}
-Convolutional  neural networks have proven to be useful for multiple NLP tasks, such as sentiment analysis or summarization.
-CNN have the ability to extract $n$-gram features from input sentences to create a semantic sentence representation to be used in downstream tasks.
-Such ability comes from the convolutions creating an evermore abstract representation of the input, but still conserving a micro-context due to how convolutions work.
-This particular usage of CNN is called Sentence Modeling and could prove useful for hyperpartisan news detection.
-
-\subsection{Naive Bayes}
-The Naive Bayes method utilizes Bayes' Theorem to classify text and is used in text and topic classification.
-Additionally, it relies on the `bag of words' (BOW) representation to function.
-For the binomial classification a positive and negative class are used---in our case hyperpartisan and non-hyperpartisan---to each of which is a BOW assigned.
-Depending on the count of positive and negative words, the text is classified as such.
-This approach might be useful depending on the chosen BOWs.
-
-\subsection{Support Vector Machine}
-If the wordt are modelled as vectors, is is possible to draw them in a multidimensional space. Support Vector Machines are able to draw a line in the space with creates the best separation between two types of categories. Therefore it is really suitable as a binary classifier. In this case both classes would be \textit{hyperpartisian} or \textit{non-hyperpartisian}.
-
-\subsection{Logistic Regression}
-Logistic regressions are similiar to Support Vector Machines. However, line that is drawn in order to separate two classes is calculated in a different way. A support Vector Machine tries to draw this so that it maximizes the margin between the line and both classes. Logistic Regression is therefore more sensible to outliers. Another difference is that Support Vector Machines are binary, so there is no way to tell something about the reliability of the prediction, the class is either $1$ or $0$. Logistic Regressions are working with probabilities between $1$ and $0$
-
-\section{Used tools}
-
-\section{Proposed solution}
-
-\section{Architecture}
+\input{architecture.tex}
 
 \end{document}
