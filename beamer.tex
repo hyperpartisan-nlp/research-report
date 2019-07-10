@@ -18,13 +18,19 @@
 	\item "Extremely biased in favor of a political party"
 	\end{itemize}
 \item SemEval 2019 competition
-\item Datasets
-	\begin{itemize}
-	\item By article
-	\item By publisher
-	\end{itemize}
 \end{itemize} 
 }
+
+
+\begin{frame}
+    \frametitle{Datasets}
+    \begin{enumerate}
+        \item byarticle (~600 articles directly labeled; \emph{quality data})
+        \item bypublisher (~600k articles indirectly labeled by publisher; \emph{quantity data})
+        \item byart-bypub-mix (byarticle + ~1100 articles from bypublisher)
+    \end{enumerate}
+    due to time and ressource constraints, only byarticle and mix were used, as well as a seed
+\end{frame}
 
 \section{Different attemps}
 \frame{\frametitle{Attempts}
@@ -43,6 +49,19 @@
 	\item Number of capitalized words
 	\item Number of exclamation marks
 	\end{itemize} 
+\end{itemize} 
+}
+
+\subsection{Pipeline}
+\frame{\frametitle{Pipeline}
+\begin{itemize}
+\item Transformer
+	\begin{itemize}
+	\item CountVectorizer
+	\item TfidfTransformer
+	\end{itemize} 
+\item Bag of Words
+\item Classifier
 \end{itemize} 
 }
 
@@ -131,16 +150,6 @@
 \section{CNN-Approach}
 
 \begin{frame}
-    \frametitle{Datasets}
-    \begin{enumerate}
-        \item byarticle (~600 articles directly labeled; \emph{quality data})
-        \item bypublisher (~600k articles indirectly labeled by publisher; \emph{quantity data})
-        \item byart-bypub-mix (byarticle + ~1100 articles from bypublisher)
-    \end{enumerate}
-    due to time and ressource constraints, only byarticle and mix were used, as well as a seed
-\end{frame}
-
-\begin{frame}
     \frametitle{Baselines}
     \begin{itemize}
         \item Logistic Regression
@@ -205,7 +214,8 @@
 
 
 \section{Conclusion}
-\frame{\frametitle{Scores}
+\frame{\frametitle{Conclusion}
+
 }
 
 \end{document}
