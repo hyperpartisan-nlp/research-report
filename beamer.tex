@@ -25,14 +25,14 @@
 \begin{frame}
     \frametitle{Datasets}
     \begin{enumerate}
-        \item byarticle (~600 articles directly labeled; \emph{quality data})
-        \item bypublisher (~600k articles indirectly labeled by publisher; \emph{quantity data})
+        \item byarticle ($\sim600$ articles directly labeled, 2,7MB; \emph{quality data})
+        \item bypublisher ($\sim600k$ articles indirectly labeled by publisher, 2,6GB; \emph{quantity data})
         \item byart-bypub-mix (byarticle + ~1100 articles from bypublisher)
     \end{enumerate}
     due to time and ressource constraints, only byarticle and mix were used, as well as a seed
 \end{frame}
 
-\section{Different attemps}
+\section{Different basic attemps}
 \frame{\frametitle{Attempts}
 \begin{itemize}
 \item Classifiers
@@ -55,6 +55,7 @@
 \subsection{Pipeline}
 \frame{\frametitle{Pipeline}
 \begin{itemize}
+\item XML-parser
 \item Transformer
 	\begin{itemize}
 	\item CountVectorizer
@@ -101,7 +102,7 @@
 \end{itemize} 
 }
 
-\section{Scores}
+\subsection{Scores}
 \frame{\frametitle{Scores (20 runs)}
 
 %logisticRegression
@@ -215,7 +216,13 @@
 
 \section{Conclusion}
 \frame{\frametitle{Conclusion}
-
+\begin{itemize}
+\item Logistic regression seems to be the best baseline
+\item Small improvements possible adding extra features
+\item Bypublisher dataset makes it worse
+\item It is hard to apply CNN's, not as easy as thought
+\item Great resources are needed, also for small machinelearning tasks
+\end{itemize}
 }
 
 \end{document}

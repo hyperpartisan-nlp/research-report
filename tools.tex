@@ -2,7 +2,10 @@
 
 \subsection{Sckitlearn}
 
+Skikitlearn is a software library which can be used for machine learning. It can be used with Python and provides a lot of tools that can be used out of the box.
+
 \subsubsection{Preprocessing}
+The data provided by the SemEval contest is stored as XML. Therefore the data had to be parsed. Inside the articles, there was also a lot of normal HTML tags included. The tokenizer would also include these tags, so these had to be stripped. 
 
 \subsubsection{Support Vector Machine}
 
@@ -10,11 +13,14 @@
 
 \subsection{Performance}
  
- 
+
 \begin{tabular}{ l | l l l l }
-  Method & Accuracy & Precision & Recall & F1 score \\
-  \hline
-  Support Vector Machine & 5 & 6 \\
-  Convolutional Neural Network & 8 & 9 \\
-  Multilayer perception & 8 & 9 \\
+	Method & Acc. & Prec. & Rec. & F1 \\
+	\hline
+	Logistic regression & 0,70-0,82 & 0,65-0,81 & 0,38-0,60 & 0,51-0,70 \\
+	SGD Classifier & 0,62-0,76 & 0,51-0,79 & 0,52-0,78 & 0,59-0,70 \\
+	Random Forest & 0,63-0,78 & 0,60-0,88 & 0,27-0,47 & 0,41-0,59 \\
+	Naive Bayes & 0,65-0,78 & 0,50-0,75 & 0,57-0,80 & 0,59-0,71 \\
+	Log. reg. FU & 0,71-0,82 & 0,67-0,92 & 0,39-0,64 & 0,49-0,70 \\
+	SGD FU & 0,34-0,70 & 0,00-0,40 & 0,00-1,00 & 0,0-0,58 \\
 \end{tabular}
