@@ -1,4 +1,4 @@
-\section{Approaches}
+\section{Classifier}
 
 \subsection{Sckitlearn}
 
@@ -7,9 +7,41 @@ Skikitlearn is a software library which can be used for machine learning. It can
 \subsubsection{Preprocessing}
 The data provided by the SemEval contest is stored as XML. Therefore the data had to be parsed. Inside the articles, there was also a lot of normal HTML tags included. The tokenizer would also include these tags, so these had to be stripped. 
 
-\subsubsection{Support Vector Machine}
+After the data is converted to plain text, it is sent to the transformer. For this research two different types of transformers are used: \textit{CountVectorizer} and \textit{TfidfTranformer}. The first one uses the absolute value for the number of times that a term occurs. The second one also takes the general frequency of the term in to account. This means that terms that are really common, like stopwords, are considered less important. The output of this process results in a \textit{bag of words}-model.
 
-\subsubsection{Multi Layer Perception}
+\subsection{Classifier}
+
+These bags of words can be feeded to the actual classifier. In this research, the following classifiers are experimented with.
+
+\begin{itemize}
+	\item Logistic regression
+	\item SGD Classifier
+	\item Random Forest
+	\item Naive Bayes
+\end{itemize}
+
+\noindent After some tweaking of the paramters, these classifiers resulted in quite good results. \\
+
+\begin{tabular}{ l | l l l l }
+	Method & Acc. & Prec. & Rec. & F1 \\
+	\hline
+	Logistic regression & 0,70-0,82 & 0,65-0,81 & 0,38-0,60 & 0,51-0,70 \\
+	SGD Classifier & 0,62-0,76 & 0,51-0,79 & 0,52-0,78 & 0,59-0,70 \\
+	Random Forest & 0,63-0,78 & 0,60-0,88 & 0,27-0,47 & 0,41-0,59 \\
+	Naive Bayes & 0,65-0,78 & 0,50-0,75 & 0,57-0,80 & 0,59-0,71 \\
+\end{tabular}
+
+\noindent However, it seemed hard to make these scores much better by further tuning. Because of this, the next step of the research covered the tuning of the preprocessing. 
+
+During manual investigation of the dataset, it turned out that a couple of metrics of the articles are different based on the category. For example, an article is much longer if it is an hyperpartisian article. The difference is 596 words vs. 415 words. 
+
+Also the use of capitalized words is extravagant. Hyperpartisian articles have an average of 7 capitalized words, vs. 5 capitalized words per article for normal articles. 
+
+At last, the manual research also turned out that the use of exclamation marks is more dense in hyperpartisian articles. The average lies at 1 exclamation mark per article vs. 0.36 for normal articles.
+
+In order to use this metrics for the classifier, these metrics had to be embedded in the preprocessing. The idea was to add one token, e.g. LONGARTICLE, if an article had over 500 words. Unfortunately, this did not result in significant better scores.
+
+The second attempt used a so called \textit{feature union}. This makes it possible to combine multiple pipes into one classifier. The disadvantage, is that this happens after the preprocessing, so there is no way to recall the original article an calculate the metrics. The only thing that can be determined based on the preprocessed data is the length of an article (because of size of the bag of words). This feature union was created, and resulted in a slightly improved score:
 
 \subsection{Performance}
  
